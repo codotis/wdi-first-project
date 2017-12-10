@@ -1,3 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 body {
-  background-color: orange;
+  background-color: #2f2f33;
+  color: #e8e8ed;
+  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+main {
+
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 84%;
+}
+
+li {
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 5px 5px;
+  background-color: red;
+}
+
+.gameframe {
+  border: 3px solid white;
+  width: 500px;
+  height: 500px;
+  margin: 40px 0px;
+}
+
+/*ID SELECTORS*/
+
+#instr {
+
+}
+
+#start {
+
+}
+
+#user {
+
+}
+
+#lives {
+
+}
+
+#score {
+
 }
