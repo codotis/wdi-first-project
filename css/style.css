@@ -39,6 +39,55 @@ li {
   margin: 40px 0px;
 }
 
+.static-red {
+  border: 3px solid red;
+  background-color: red;
+  width: 30px;
+  height: 30px;
+}
+.static-blue {
+  border: 3px solid blue;
+  background-color: blue;
+  width: 30px;
+  height: 30px;
+}
+.static-green {
+  border: 3px solid green;
+  background-color: green;
+  width: 30px;
+  height: 30px;
+}
+.static-pink {
+  border: 3px solid pink;
+  background-color: pink;
+  width: 30px;
+  height: 30px;
+}
+.flashing-red {
+  border: 3px solid red;
+  background-color: red;
+  width: 30px;
+  height: 30px;
+}
+.flashing-blue {
+  border: 3px solid blue;
+  background-color: blue;
+  width: 30px;
+  height: 30px;
+}
+.flashing-green {
+  border: 3px solid green;
+  background-color: green;
+  width: 30px;
+  height: 30px;
+}
+.flashing-pink {
+  border: 3px solid pink;
+  background-color: pink;
+  width: 30px;
+  height: 30px;
+}
+
 /*ID SELECTORS*/
 
 #instr {
