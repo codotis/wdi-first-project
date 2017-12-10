@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 body {
-  background-color: #2f2f33;
+  background-image: url(../images/galaxy-background2.jpg);
   color: #e8e8ed;
   font-family: 'Orbitron', sans-serif;
   display: flex;
@@ -10,8 +10,10 @@ body {
   flex-direction: column;
 }
 
-main {
-
+header {
+  border-top: 2px dashed #e8e8ed;
+  border-bottom: 2px dashed #e8e8ed;
+  margin: 25px 0px;
 }
 
 ul {
@@ -30,6 +32,7 @@ li {
 }
 
 .gameframe {
+  background-color: #2f2f33;
   border: 3px solid white;
   width: 500px;
   height: 500px;
