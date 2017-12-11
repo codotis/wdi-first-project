@@ -51,46 +51,47 @@ $(()=> {
   });
 
   function checkRedMatch() {
-    $flashingred.hasClass('.red-flash-red');
-    if (checkRedMatch() === true) {
+    const redMatch = $flashingred.hasClass('.red-flash-red');
+    if (redMatch === true) {
       console.log('1000');
-    }
-    else {
-      console.log('-1');
     }
   }
 
   function checkBlueMatch() {
-    $flashingblue.hasClass('.blue-flash-blue');
-    if (checkBlueMatch() === true) {
+    const blueMatch = $flashingblue.hasClass('.blue-flash-blue');
+    if (blueMatch === true) {
       console.log('1000');
-    }
-    else {
-      console.log('-1');
     }
   }
 
   function checkGreenMatch() {
-    $flashinggreen.hasClass('.green-flash-pink');
-    if (checkGreenMatch() === true) {
+    const greenMatch = $flashinggreen.hasClass('.green-flash-green');
+    if (greenMatch === true) {
       console.log('1000');
-    }
-    else {
-      console.log('-1');
     }
   }
 
   function checkPinkMatch() {
-    $flashingpink.hasClass('.pink-flash-pink');
-    if (checkPinkMatch() === true) {
+    const pinkMatch = $flashingpink.hasClass('.pink-flash-pink');
+    if (pinkMatch === true) {
       console.log('1000');
-    }
-    else {
-      console.log('-1');
     }
   }
 
-  checkBlueMatch();
+  $(document).keydown(function(e) {
+    if (e.keyCode === 37) {
+      checkPinkMatch();
+    }
+    if (e.keyCode === 38) {
+      checkRedMatch();
+    }
+    if (e.keyCode === 39) {
+      checkBlueMatch();
+    }
+    if (e.keyCode === 40) {
+      checkGreenMatch();
+    }
+  });
 
 
 
@@ -103,10 +104,10 @@ $(()=> {
 
 
 
-// const isMatch = $( ".flashing-red" ).hasClass( "backgroundRed" )
-// if(isMatch) {
 
-//} else {
 
-//}
+
+
+
+
 });
