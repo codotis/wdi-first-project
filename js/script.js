@@ -43,6 +43,56 @@ $(()=> {
   }, 1000);
 
 
+  $instructions.on('click', function() {
+  });
+
+  $startgame.on('click', function() {
+
+  });
+
+  function checkRedMatch() {
+    $flashingred.hasClass('.red-flash-red');
+    if (checkRedMatch() === true) {
+      console.log('1000');
+    }
+    else {
+      console.log('-1');
+    }
+  }
+
+  function checkBlueMatch() {
+    $flashingblue.hasClass('.blue-flash-blue');
+    if (checkBlueMatch() === true) {
+      console.log('1000');
+    }
+    else {
+      console.log('-1');
+    }
+  }
+
+  function checkGreenMatch() {
+    $flashinggreen.hasClass('.green-flash-pink');
+    if (checkGreenMatch() === true) {
+      console.log('1000');
+    }
+    else {
+      console.log('-1');
+    }
+  }
+
+  function checkPinkMatch() {
+    $flashingpink.hasClass('.pink-flash-pink');
+    if (checkPinkMatch() === true) {
+      console.log('1000');
+    }
+    else {
+      console.log('-1');
+    }
+  }
+
+  checkBlueMatch();
+
+
 
 
 
