@@ -37,31 +37,33 @@ li {
   width: 500px;
   height: 500px;
   margin: 40px 0px;
+  display: flex;
+  flex-direction: row;
 }
 
 .static-red {
   border: 3px solid red;
   background-color: red;
-  width: 30px;
-  height: 30px;
+  width: 250px;
+  height: 250px;
 }
 .static-blue {
   border: 3px solid blue;
   background-color: blue;
-  width: 30px;
-  height: 30px;
+  width: 250px;
+  height: 250px;
 }
 .static-green {
   border: 3px solid green;
   background-color: green;
-  width: 30px;
-  height: 30px;
+  width: 250px;
+  height: 250px;
 }
 .static-pink {
   border: 3px solid pink;
   background-color: pink;
-  width: 30px;
-  height: 30px;
+  width: 250px;
+  height: 250px;
 }
 .flashing-red {
   border: 3px solid red;
