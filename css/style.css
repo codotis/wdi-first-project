@@ -80,12 +80,12 @@ ul li:hover{
 	border-bottom: 250px solid green;
   margin-top: 250px;
 }
-.static-pink {
+.static-yellow {
   width: 0;
   height: 0;
   border-top: 250px solid transparent;
 	border-bottom: 250px solid transparent;
-	border-left: 250px solid pink;
+	border-left: 250px solid yellow;
 }
 .flashing-red {
   width: 0;
@@ -96,7 +96,7 @@ ul li:hover{
   margin-top: 125px;
   margin-left: 125px
 }
-.flashing-pink {
+.flashing-yellow {
   width: 0;
   height: 0;
   border-top: 125px solid transparent;
@@ -110,7 +110,7 @@ ul li:hover{
   height: 0;
   border-left: 125px solid transparent;
 	border-right: 125px solid transparent;
-	border-bottom: 125px solid pink;
+	border-bottom: 125px solid yellow;
   margin-top: 250px;
   margin-left: 125px;
 
@@ -128,8 +128,8 @@ ul li:hover{
 
 /*LARGE RED TRIANGLE FLASH*/
 
-.red-flash-pink {
-  border-top-color: pink;
+.red-flash-yellow {
+  border-top-color: yellow;
 }
 
 .red-flash-red {
@@ -146,8 +146,8 @@ ul li:hover{
 
 /*LARGE BLUE TRIANGLE FLASH*/
 
-.blue-flash-pink {
-  border-right-color: pink;
+.blue-flash-yellow {
+  border-right-color: yellow;
 }
 
 .blue-flash-red {
@@ -167,8 +167,8 @@ ul li:hover{
 
 /*LARGE GREEN TRIANGLE FLASH*/
 
-.green-flash-pink {
-border-bottom-color: pink;
+.green-flash-yellow {
+border-bottom-color: yellow;
 }
 
 .green-flash-red {
@@ -183,21 +183,21 @@ border-bottom-color: blue;
 border-bottom-color: green;
 }
 
-/*LARGE PINK TRIANGLE FLASH*/
+/*LARGE YELLOW TRIANGLE FLASH*/
 
-.pink-flash-pink {
-  border-left-color: pink;
+.yellow-flash-yellow {
+  border-left-color: yellow;
 }
 
-.pink-flash-red {
+.yellow-flash-red {
   border-left-color: red;
 }
 
-.pink-flash-blue {
+.yellow-flash-blue {
   border-left-color: blue;
 }
 
-.pink-flash-green {
+.yellow-flash-green {
   border-left-color: green;
 }
 
@@ -225,9 +225,9 @@ border-bottom-color: green;
 
 }
 
-/*const colors = ["backgroundPink", "backgroundBlue, backgroundRed, backgroundGreen"];
+/*const colors = ["backgroundyellow", "backgroundBlue, backgroundRed, backgroundGreen"];
 
 setInterval(function(){
 // here do a math random based on the length of the array to pick a string
-    $(".flashing-red").toggleClass("backgroundPink");
+    $(".flashing-red").toggleClass("backgroundyellow");
 }, 100)*/
