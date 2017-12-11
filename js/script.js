@@ -24,22 +24,25 @@ $(()=> {
   setInterval(function(){
     const redRandomColor = redFlashColors[Math.floor(Math.random() * 4)];
     $('.flashing-red').toggleClass(redRandomColor);
-  }, 500);
+  }, 1000);
 
-  // setInterval(function(){
-  //   const blueRandomColor = blueFlashColors[Math.floor(Math.random() * 4)];
-  //   $('.flashing-blue').toggleClass(blueRandomColor);
-  // }, 500);
+  setInterval(function(){
+    const blueRandomColor = blueFlashColors[Math.floor(Math.random() * 4)];
+    $('.flashing-blue').toggleClass(blueRandomColor);
+  }, 1000);
 
   setInterval(function(){
     const greenRandomColor = greenFlashColors[Math.floor(Math.random() * 4)];
     $('.flashing-green').toggleClass(greenRandomColor);
-  }, 500);
 
-  // setInterval(function(){
-  //   const pinkRandomColor = pinkFlashColors[Math.floor(Math.random() * 4)];
-  //   $('.flashing-pink').toggleClass(pinkRandomColor);
-  // }, 500);
+  }, 1000);
+
+  setInterval(function(){
+    const pinkRandomColor = pinkFlashColors[Math.floor(Math.random() * 4)];
+    $('.flashing-pink').toggleClass(pinkRandomColor);
+  }, 1000);
+
+
 
 
 

@@ -147,21 +147,21 @@ ul li:hover{
 /*LARGE BLUE TRIANGLE FLASH*/
 
 .blue-flash-pink {
-  border-right-color: pink;
+  border-left-color: pink;
 }
 
 .blue-flash-red {
-  border-right-color: red;
+  border-left-color: red;
 
 }
 
 .blue-flash-blue {
-  border-right-color: blue;
+  border-left-color: blue;
 
 }
 
 .blue-flash-green {
-  border-right-color: green;
+  border-left-color: green;
 
 }
 
@@ -186,19 +186,19 @@ border-bottom-color: green;
 /*LARGE PINK TRIANGLE FLASH*/
 
 .pink-flash-pink {
-  border-left-color: pink;
+  border-right-color: pink;
 }
 
 .pink-flash-red {
-  border-left-color: red;
+  border-right-color: red;
 }
 
 .pink-flash-blue {
-  border-left-color: blue;
+  border-right-color: blue;
 }
 
 .pink-flash-green {
-  border-left-color: green;
+  border-right-color: green;
 }
 
 
