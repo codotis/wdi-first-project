@@ -46,10 +46,17 @@ a {
   flex-direction: row;
 
 }
-.static-shape{
+.static-shape {
   position: absolute
 }
 
+ul li:hover{
+  background-color: black;
+}
+
+.flashing-shape {
+  position: absolute;
+}
 .static-red {
   width: 0;
   height: 0;
@@ -81,44 +88,120 @@ a {
 	border-left: 250px solid pink;
 }
 .flashing-red {
-  border: 1px solid black;
-  background-color: red;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  margin-top: 234px;
-  margin-left: 200px
+  width: 0;
+  height: 0;
+	border-left: 125px solid transparent;
+	border-right: 125px solid transparent;
+	border-top: 125px solid blue;
+  margin-top: 125px;
+  margin-left: 125px
 }
 .flashing-blue {
-  border: 1px solid black;
-  background-color: blue;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  margin-top: 200px;
-  margin-left: 233px;
-
+  width: 0;
+  height: 0;
+  border-top: 125px solid transparent;
+	border-bottom: 125px solid transparent;
+	border-left: 125px solid red;
+  margin-top: 125px;
+  margin-left: 125px
 }
 .flashing-green {
-  border: 1px solid black;
-  background-color: green;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  margin-top: 234px;
-  margin-left: 267px;
+  width: 0;
+  height: 0;
+  border-left: 125px solid transparent;
+	border-right: 125px solid transparent;
+	border-bottom: 125px solid pink;
+  margin-top: 250px;
+  margin-left: 125px;
 
 }
 .flashing-pink {
-  border: 1px solid black;
-  background-color: pink;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  margin-top: 267px;
-  margin-left: 233px;
+  width: 0;
+  height: 0;
+  border-top: 125px solid transparent;
+	border-bottom: 125px solid transparent;
+	border-right: 125px solid green;
+  margin-top: 125px;
+  margin-left: 250px;
 
 }
+
+/*LARGE RED TRIANGLE FLASH*/
+
+.red-flash-pink {
+  border-top-color: pink;
+}
+
+.red-flash-red {
+  border-top-color: red;
+}
+
+.red-flash-blue {
+  border-top-color: blue;
+}
+
+.red-flash-green {
+  border-top-color: green;
+}
+
+/*LARGE BLUE TRIANGLE FLASH*/
+
+.blue-flash-pink {
+  border-right-color: pink;
+}
+
+.blue-flash-red {
+  border-right-color: red;
+
+}
+
+.blue-flash-blue {
+  border-right-color: blue;
+
+}
+
+.blue-flash-green {
+  border-right-color: green;
+
+}
+
+/*LARGE GREEN TRIANGLE FLASH*/
+
+.green-flash-pink {
+border-bottom-color: pink;
+}
+
+.green-flash-red {
+border-bottom-color: red;
+}
+
+.green-flash-blue {
+border-bottom-color: blue;
+}
+
+.green-flash-green {
+border-bottom-color: green;
+}
+
+/*LARGE PINK TRIANGLE FLASH*/
+
+.pink-flash-pink {
+  border-left-color: pink;
+}
+
+.pink-flash-red {
+  border-left-color: red;
+}
+
+.pink-flash-blue {
+  border-left-color: blue;
+}
+
+.pink-flash-green {
+  border-left-color: green;
+}
+
+
 
 /*ID SELECTORS*/
 
@@ -141,3 +224,10 @@ a {
 #score {
 
 }
+
+/*const colors = ["backgroundPink", "backgroundBlue, backgroundRed, backgroundGreen"];
+
+setInterval(function(){
+// here do a math random based on the length of the array to pick a string
+    $(".flashing-red").toggleClass("backgroundPink");
+}, 100)*/
