@@ -27,7 +27,7 @@ $(()=> {
 // INSTRUCTIONS MENU SLIDES DOWN+++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-  $instructions.on('click', function() {
+  $startgame.on('click', function() {
     $($instrhide).hide();
   });
 

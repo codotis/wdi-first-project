@@ -51,6 +51,12 @@ a {
   width: 500px;
   height: 500px;
   position: relative;
+  text-align: center;
+}
+
+p {
+  margin: 180px 50px;
+
 }
 
 .static-shape {
