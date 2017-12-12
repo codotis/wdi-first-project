@@ -44,8 +44,17 @@ a {
   margin: 40px 0px;
   display: flex;
   flex-direction: row;
-
 }
+
+.instr-popup {
+  background-color: #2f2f33;
+  border: 3px solid white;
+  width: 500px;
+  height: 500px;
+  position: relative;
+  display: flex;
+}
+
 .static-shape {
   position: absolute
 }

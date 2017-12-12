@@ -11,6 +11,9 @@ $(()=> {
   const $flashingblue = $('.flashing-blue');
   const $flashinggreen = $('.flashing-green');
   const $flashingyellow = $('.flashing-yellow');
+  let flashInterval = null;
+  let gameRunning = false;
+  let livesGameOver = null;
 
 // PLAY AROUND WITH START BUTTON+++++++++++++++++++++++++++++++++++++++++++++
 
@@ -36,9 +39,10 @@ $(()=> {
 
 
 
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // INNER TRIANGLES RANDOMLY FLASH++++++++++++++++++++++++++++++++++++++++++++
-
-
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   const redFlashColors = ['red-flash-yellow', 'red-flash-red', 'red-flash-blue', 'red-flash-green'];
   const blueFlashColors = ['blue-flash-yellow', 'blue-flash-red', 'blue-flash-blue', 'blue-flash-green'];
@@ -46,16 +50,7 @@ $(()=> {
   const yellowFlashColors = ['yellow-flash-yellow', 'yellow-flash-red', 'yellow-flash-blue', 'yellow-flash-green'];
 
 
-  setInterval(function(){
-    const redRandomColor = redFlashColors[Math.floor(Math.random() * 4)];
-    const blueRandomColor = blueFlashColors[Math.floor(Math.random() * 4)];
-    const greenRandomColor = greenFlashColors[Math.floor(Math.random() * 4)];
-    const yellowRandomColor = yellowFlashColors[Math.floor(Math.random() * 4)];
-    $('.flashing-red').toggleClass(redRandomColor);
-    $('.flashing-blue').toggleClass(blueRandomColor);
-    $('.flashing-green').toggleClass(greenRandomColor);
-    $('.flashing-yellow').toggleClass(yellowRandomColor);
-  }, 800);
+
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -63,16 +58,29 @@ $(()=> {
   });
 
   $startgame.on('click', function() {
-
+    if (gameRunning === false) {
+      (gameRunning = !gameRunning);
+      flashInterval = setInterval(function(){
+        const redRandomColor = redFlashColors[Math.floor(Math.random() * 4)];
+        const blueRandomColor = blueFlashColors[Math.floor(Math.random() * 4)];
+        const greenRandomColor = greenFlashColors[Math.floor(Math.random() * 4)];
+        const yellowRandomColor = yellowFlashColors[Math.floor(Math.random() * 4)];
+        $('.flashing-red').toggleClass(redRandomColor);
+        $('.flashing-blue').toggleClass(blueRandomColor);
+        $('.flashing-green').toggleClass(greenRandomColor);
+        $('.flashing-yellow').toggleClass(yellowRandomColor);
+      }, 1000);
+    }
   });
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // SCORE SYSTEM FUNCTIONALITY++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   let score = 0;
-  $scorenumber.html(score);
 
   function foundMatchingColors() {
-    score += 100;
+    score += 1000;
     $scorenumber.html(score);
   }
 
@@ -81,7 +89,6 @@ $(()=> {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   let lives = 3;
-  $lives.html(lives);
 
   function loseALife() {
     lives -=1;
@@ -144,6 +151,6 @@ $(()=> {
     }
   });
 
-  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 });
