@@ -15,6 +15,9 @@ $(()=> {
   let gameRunning = false;
   let livesGameOver = null;
   let time = 10;
+  $('.end-popup1').css('visibility', 'hidden');
+  $('.end-popup2').css('visibility', 'hidden');
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // INNER TRIANGLES RANDOMLY FLASH++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -63,6 +66,7 @@ $(()=> {
           $timer.html(time);
           if (time === 0) {
             alert('oh dear, time ran out. your score is' + ' ' + ($scorenumber.html()));
+            $('.end-popup1').css('visibility', 'visible');
             clearInterval(timerStop);
           }
         }, 1000);
@@ -92,6 +96,7 @@ $(()=> {
     $lives.html(lives);
     if (lives === 0) {
       console.log('you ran out of lives, your score is' + ' ' + ($scorenumber.html()));
+      $('.end-popup2').css('visibility', 'visible');
     }
   }
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
