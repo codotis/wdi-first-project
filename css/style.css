@@ -52,10 +52,12 @@ a {
   height: 500px;
   position: relative;
   text-align: center;
+  font-size: 25px;
 }
 
 p {
-  margin: 180px 50px;
+  margin-top: 80px;
+  line-height: 1.4;
 
 }
 

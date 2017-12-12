@@ -62,14 +62,12 @@ $(()=> {
           time--;
           $timer.html(time);
           if (time === 0) {
+            alert('oh dear, time ran out. your score is' + ' ' + ($scorenumber.html()));
             clearInterval(timerStop);
           }
         }, 1000);
       }
     }
-
-
-
   });
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -92,7 +90,16 @@ $(()=> {
   function loseALife() {
     lives -=1;
     $lives.html(lives);
+    if (lives === 0) {
+      console.log('you ran out of lives, your score is' + ' ' + ($scorenumber.html()));
+    }
   }
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// GAME OVER FUNCTIONALITY+++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  // function gameOver() {}
+
+
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // CHECK EACH SEPARATE CORNER FOR MATCHES++++++++++++++++++++++++++++++++++++
@@ -131,7 +138,7 @@ $(()=> {
 // KEY PRESSES THAT CHECK FOR COLOUR MATCH+++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-  $(document).keyup(function(e) {
+  $(window).keyup(function(e) {
     if (e.keyCode === 37) {
       e.preventDefault();
       checkYellowMatch();
