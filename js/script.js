@@ -5,11 +5,39 @@ $(()=> {
   const $user = $('#user');
   const $lives = $('#lives');
   const $pause = $('#pause');
+  const $timer = $('#time');
   const $scorenumber = $('#scorenumber');
   const $flashingred = $('.flashing-red');
   const $flashingblue = $('.flashing-blue');
   const $flashinggreen = $('.flashing-green');
   const $flashingyellow = $('.flashing-yellow');
+
+// PLAY AROUND WITH START BUTTON+++++++++++++++++++++++++++++++++++++++++++++
+
+  // $(document).ready(function(){
+  //   $startgame.click(function(){
+  //     alert('started');
+  //   });
+  // });
+
+
+// PLAY AROUND WITH TIMER++++++++++++++++++++++++++++++++++++++++++++++++++++
+  // $startgame.click(function(){
+  //   let time = 5;
+  //   setInterval(function() {
+  //     time--;
+  //     $timer.html(time);
+  //     if (time < 0) {
+  //       return;
+  //     }
+  //   }, 1000);
+  // });
+
+
+
+
+// INNER TRIANGLES RANDOMLY FLASH++++++++++++++++++++++++++++++++++++++++++++
+
 
 
   const redFlashColors = ['red-flash-yellow', 'red-flash-red', 'red-flash-blue', 'red-flash-green'];
@@ -27,8 +55,9 @@ $(()=> {
     $('.flashing-blue').toggleClass(blueRandomColor);
     $('.flashing-green').toggleClass(greenRandomColor);
     $('.flashing-yellow').toggleClass(yellowRandomColor);
-  }, 200);
+  }, 800);
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   $instructions.on('click', function() {
   });
@@ -37,38 +66,66 @@ $(()=> {
 
   });
 
+// SCORE SYSTEM FUNCTIONALITY++++++++++++++++++++++++++++++++++++++++++++++++
+
+  let score = 0;
+  $scorenumber.html(score);
+
+  function foundMatchingColors() {
+    score += 100;
+    $scorenumber.html(score);
+  }
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// LIVES SYSTEM FUNCTIONALITY++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  let lives = 3;
+  $lives.html(lives);
+
+  function loseALife() {
+    lives -=1;
+    $lives.html(lives);
+  }
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// CHECK EACH SEPARATE CORNER FOR MATCHES++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
   function checkRedMatch() {
     const redMatch = $flashingred.hasClass('red-flash-red');
     if (redMatch === true) {
-      score();
-    }
+      foundMatchingColors();
+    } else loseALife();
   }
 
   function checkBlueMatch() {
     const blueMatch = $flashingblue.hasClass('blue-flash-blue');
     if (blueMatch === true) {
-      score();
-    }
+      foundMatchingColors();
+    } else loseALife();
   }
 
   function checkGreenMatch() {
     const greenMatch = $flashinggreen.hasClass('green-flash-green');
     if (greenMatch === true) {
-      score();
-    }
+      foundMatchingColors();
+    } else loseALife();
 
   }
 
   function checkYellowMatch() {
     const yellowMatch = $flashingyellow.hasClass('yellow-flash-yellow');
     if (yellowMatch === true) {
-      score();
-    }
+      foundMatchingColors();
+    } else loseALife();
   }
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// KEY PRESSES THAT CHECK FOR COLOUR MATCH+++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
-  $(document).keydown(function(e) {
+  $(document).keyup(function(e) {
     if (e.keyCode === 37) {
       e.preventDefault();
       checkYellowMatch();
@@ -87,23 +144,6 @@ $(()=> {
     }
   });
 
-  function score() {
-    let playerScore = $scorenumber.text();
-
-
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
+  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 });
