@@ -12,38 +12,13 @@ $(()=> {
   const $flashinggreen = $('.flashing-green');
   const $flashingyellow = $('.flashing-yellow');
   let flashInterval = null;
+  let timerCountdown = false;
   let gameRunning = false;
   let livesGameOver = null;
-
-// PLAY AROUND WITH START BUTTON+++++++++++++++++++++++++++++++++++++++++++++
-
-  // $(document).ready(function(){
-  //   $startgame.click(function(){
-  //     alert('started');
-  //   });
-  // });
-
-
-// PLAY AROUND WITH TIMER++++++++++++++++++++++++++++++++++++++++++++++++++++
-  // $startgame.click(function(){
-  //   let time = 5;
-  //   setInterval(function() {
-  //     time--;
-  //     $timer.html(time);
-  //     if (time < 0) {
-  //       return;
-  //     }
-  //   }, 1000);
-  // });
-
-
-
-
-
+  let time = 10;
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // INNER TRIANGLES RANDOMLY FLASH++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
   const redFlashColors = ['red-flash-yellow', 'red-flash-red', 'red-flash-blue', 'red-flash-green'];
   const blueFlashColors = ['blue-flash-yellow', 'blue-flash-red', 'blue-flash-blue', 'blue-flash-green'];
   const greenFlashColors = ['green-flash-yellow', 'green-flash-red', 'green-flash-blue', 'green-flash-green'];
@@ -51,15 +26,21 @@ $(()=> {
 
 
 
-
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// INSTRUCTIONS MENU SLIDES DOWN+++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   $instructions.on('click', function() {
   });
 
+
+
   $startgame.on('click', function() {
     if (gameRunning === false) {
       (gameRunning = !gameRunning);
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// INNER TRIANGLES RANDOMLY FLASH++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       flashInterval = setInterval(function(){
         const redRandomColor = redFlashColors[Math.floor(Math.random() * 4)];
         const blueRandomColor = blueFlashColors[Math.floor(Math.random() * 4)];
@@ -69,8 +50,28 @@ $(()=> {
         $('.flashing-blue').toggleClass(blueRandomColor);
         $('.flashing-green').toggleClass(greenRandomColor);
         $('.flashing-yellow').toggleClass(yellowRandomColor);
+        if (time === 1) {
+          clearInterval(flashInterval);
+        }
       }, 1000);
     }
+
+
+    if (timerCountdown === false) {
+      (timerCountdown = !timerCountdown);
+      if (timerCountdown === true) {
+        const timerStop = setInterval(function(){
+          time--;
+          $timer.html(time);
+          if (time === 0) {
+            clearInterval(timerStop);
+          }
+        }, 1000);
+      }
+    }
+
+
+
   });
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
