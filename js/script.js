@@ -1,10 +1,9 @@
 $(()=> {
 
   const $instructions = $('#instr');
+  const $instrhide = $('.instr-popup');
   const $startgame = $('#start');
-  const $user = $('#user');
   const $lives = $('#lives');
-  const $pause = $('#pause');
   const $timer = $('#time');
   const $scorenumber = $('#scorenumber');
   const $flashingred = $('.flashing-red');
@@ -29,6 +28,7 @@ $(()=> {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   $instructions.on('click', function() {
+    $($instrhide).hide();
   });
 
 
