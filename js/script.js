@@ -5,14 +5,14 @@ $(()=> {
   const $lives = $('#lives');
   const $timer = $('#time');
   const $scorenumber = $('#scorenumber');
-  const $flashingred = $('.flashing-red');
-  const $flashingblue = $('.flashing-blue');
-  const $flashinggreen = $('.flashing-green');
-  const $flashingyellow = $('.flashing-yellow');
+  const $flashingRed = $('.flashing-red');
+  const $flashingBlue = $('.flashing-blue');
+  const $flashingGreen = $('.flashing-green');
+  const $flashingYellow = $('.flashing-yellow');
   let flashInterval = null;
   let timerCountdown = false;
   let gameRunning = false;
-  let time = 10;
+  let time = 30;
   $('.end-popup1').css('visibility', 'hidden');
   $('.end-popup2').css('visibility', 'hidden');
 
@@ -51,7 +51,7 @@ $(()=> {
         if (time === 1) {
           clearInterval(flashInterval);
         }
-      }, 1000);
+      }, 800);
     }
 
 
@@ -62,7 +62,7 @@ $(()=> {
           time--;
           $timer.html(time);
           if (time === 0) {
-            $('.end-popup1').html('time ran out! you scored' + ' ' + $scorenumber.html() + ' ' + 'points');
+            $('.end-popup1').html('<p>time ran out! you scored' + ' ' + $scorenumber.html() + ' ' + 'points</p>');
             $('.end-popup1').css('visibility', 'visible');
             clearInterval(timerStop);
           }
@@ -80,6 +80,7 @@ $(()=> {
   function foundMatchingColors() {
     score += 1;
     $scorenumber.html(score);
+
   }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -93,7 +94,7 @@ $(()=> {
     $lives.html(lives);
     if (lives === 0) {
       (lives +=1);
-      $('#end-popup1-text').html('oh dear, you ran out of lives. you scored' + ' ' + $scorenumber.html() + ' ' + 'points');
+      $('.end-popup2').html('<p>oh dear, you ran out of lives. you scored' + ' ' + $scorenumber.html() + ' ' + 'points</p>');
       $('.end-popup2').css('visibility', 'visible');
     }
   }
@@ -102,21 +103,21 @@ $(()=> {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   function checkRedMatch() {
-    const redMatch = $flashingred.hasClass('red-flash-red');
+    const redMatch = $flashingRed.hasClass('red-flash-red');
     if (redMatch === true) {
       foundMatchingColors();
     } else loseALife();
   }
 
   function checkBlueMatch() {
-    const blueMatch = $flashingblue.hasClass('blue-flash-blue');
+    const blueMatch = $flashingBlue.hasClass('blue-flash-blue');
     if (blueMatch === true) {
       foundMatchingColors();
     } else loseALife();
   }
 
   function checkGreenMatch() {
-    const greenMatch = $flashinggreen.hasClass('green-flash-green');
+    const greenMatch = $flashingGreen.hasClass('green-flash-green');
     if (greenMatch === true) {
       foundMatchingColors();
     } else loseALife();
@@ -124,7 +125,7 @@ $(()=> {
   }
 
   function checkYellowMatch() {
-    const yellowMatch = $flashingyellow.hasClass('yellow-flash-yellow');
+    const yellowMatch = $flashingYellow.hasClass('yellow-flash-yellow');
     if (yellowMatch === true) {
       foundMatchingColors();
     } else loseALife();

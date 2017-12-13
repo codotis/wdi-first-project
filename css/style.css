@@ -29,6 +29,11 @@ li {
   border-radius: 10px;
   padding: 7px 5px;
   background-color: red;
+  width: 100px;
+}
+
+#restart {
+  text-align: center;
 }
 
 a {
@@ -36,6 +41,16 @@ a {
   text-decoration: none;
 }
 
+
+#start {
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 10px;
+  font-size: 16px;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+}
 /*#end-popup1-text {
   position: relative;
   top: 45%;
@@ -47,7 +62,7 @@ a {
   border: 3px solid white;
   width: 500px;
   height: 500px;
-  margin: 40px 0px;
+  margin: 10px 0;
   display: flex;
   flex-direction: row;
 }
@@ -239,4 +254,8 @@ border-bottom-color: green;
 
 .yellow-flash-green {
   border-left-color: green;
+}
+
+button:focus {
+  outline:0;
 }
