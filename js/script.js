@@ -1,6 +1,5 @@
 $(()=> {
 
-  const $instructions = $('#instr');
   const $instrhide = $('.instr-popup');
   const $startgame = $('#start');
   const $lives = $('#lives');
@@ -13,7 +12,6 @@ $(()=> {
   let flashInterval = null;
   let timerCountdown = false;
   let gameRunning = false;
-  let livesGameOver = null;
   let time = 10;
   $('.end-popup1').css('visibility', 'hidden');
   $('.end-popup2').css('visibility', 'hidden');
@@ -30,15 +28,14 @@ $(()=> {
 // INSTRUCTIONS MENU SLIDES DOWN+++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-  $startgame.on('click', function() {
-    $($instrhide).hide();
-  });
-
 
 
   $startgame.on('click', function() {
     if (gameRunning === false) {
       (gameRunning = !gameRunning);
+      if (gameRunning === true) {
+        $($instrhide).hide();
+      }
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // INNER TRIANGLES RANDOMLY FLASH++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -65,7 +62,7 @@ $(()=> {
           time--;
           $timer.html(time);
           if (time === 0) {
-            alert('oh dear, time ran out. your score is' + ' ' + ($scorenumber.html()));
+            $('.end-popup1').html('time ran out! you scored' + ' ' + $scorenumber.html() + ' ' + 'points');
             $('.end-popup1').css('visibility', 'visible');
             clearInterval(timerStop);
           }
@@ -81,7 +78,7 @@ $(()=> {
   let score = 0;
 
   function foundMatchingColors() {
-    score += 1000;
+    score += 1;
     $scorenumber.html(score);
   }
 
@@ -95,17 +92,11 @@ $(()=> {
     lives -=1;
     $lives.html(lives);
     if (lives === 0) {
-      console.log('you ran out of lives, your score is' + ' ' + ($scorenumber.html()));
+      (lives +=1);
+      $('#end-popup1-text').html('oh dear, you ran out of lives. you scored' + ' ' + $scorenumber.html() + ' ' + 'points');
       $('.end-popup2').css('visibility', 'visible');
     }
   }
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// GAME OVER FUNCTIONALITY+++++++++++++++++++++++++++++++++++++++++++++++++++
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  // function gameOver() {}
-
-
-
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // CHECK EACH SEPARATE CORNER FOR MATCHES++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

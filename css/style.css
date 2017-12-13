@@ -36,6 +36,12 @@ a {
   text-decoration: none;
 }
 
+/*#end-popup1-text {
+  position: relative;
+  top: 45%;
+  transform: translateY(-50%);
+}*/
+
 .gameframe {
   background-color: #2f2f33;
   border: 3px solid white;
@@ -74,8 +80,9 @@ a {
 }
 
 p {
-  margin-top: 80px;
-  line-height: 1.4;
+  position: relative;
+  top: 45%;
+  transform: translateY(-50%);
 
 }
 
@@ -233,34 +240,3 @@ border-bottom-color: green;
 .yellow-flash-green {
   border-left-color: green;
 }
-
-
-
-/*ID SELECTORS*/
-
-#instr {
-
-}
-
-#start {
-
-}
-
-#user {
-
-}
-
-#lives {
-
-}
-
-#score {
-
-}
-
-/*const colors = ["backgroundyellow", "backgroundBlue, backgroundRed, backgroundGreen"];
-
-setInterval(function(){
-// here do a math random based on the length of the array to pick a string
-    $(".flashing-red").toggleClass("backgroundyellow");
-}, 100)*/
