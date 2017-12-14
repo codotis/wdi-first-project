@@ -94,6 +94,7 @@ $(()=> {
       gameRunning = true;
       lives = 3;
       $lives.html(lives);
+      score = 0;
       $scorenumber.html(0);
       time = 60;
       $timer.html(60);
