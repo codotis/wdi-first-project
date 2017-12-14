@@ -4,6 +4,7 @@ $(()=> {
   const $startgame = $('#start');
   const $lives = $('#lives');
   const $timer = $('#time');
+  const $restart = $('#restart')
   const $scorenumber = $('#scorenumber');
   const $flashingRed = $('.flashing-red');
   const $flashingBlue = $('.flashing-blue');
@@ -12,10 +13,10 @@ $(()=> {
   let flashInterval = null;
   let timerCountdown = false;
   let gameRunning = false;
-  let time = 30;
+  let time = 60;
+  let lives = 3;
   $('.end-popup1').css('visibility', 'hidden');
   $('.end-popup2').css('visibility', 'hidden');
-
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // INNER TRIANGLES RANDOMLY FLASH++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -23,36 +24,36 @@ $(()=> {
   const blueFlashColors = ['blue-flash-yellow', 'blue-flash-red', 'blue-flash-blue', 'blue-flash-green'];
   const greenFlashColors = ['green-flash-yellow', 'green-flash-red', 'green-flash-blue', 'green-flash-green'];
   const yellowFlashColors = ['yellow-flash-yellow', 'yellow-flash-red', 'yellow-flash-blue', 'yellow-flash-green'];
-
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// INSTRUCTIONS MENU SLIDES DOWN+++++++++++++++++++++++++++++++++++++++++++++
+// INSTRUCTIONS MENU HIDES+++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
 
   $startgame.on('click', function() {
+
     if (gameRunning === false) {
       (gameRunning = !gameRunning);
-      if (gameRunning === true) {
-        $($instrhide).hide();
-      }
+    }
+    if (gameRunning === true) {
+      $($instrhide).hide();
+    }
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // INNER TRIANGLES RANDOMLY FLASH++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-      flashInterval = setInterval(function(){
-        const redRandomColor = redFlashColors[Math.floor(Math.random() * 4)];
-        const blueRandomColor = blueFlashColors[Math.floor(Math.random() * 4)];
-        const greenRandomColor = greenFlashColors[Math.floor(Math.random() * 4)];
-        const yellowRandomColor = yellowFlashColors[Math.floor(Math.random() * 4)];
-        $('.flashing-red').toggleClass(redRandomColor);
-        $('.flashing-blue').toggleClass(blueRandomColor);
-        $('.flashing-green').toggleClass(greenRandomColor);
-        $('.flashing-yellow').toggleClass(yellowRandomColor);
-        if (time === 1) {
-          clearInterval(flashInterval);
-        }
-      }, 800);
-    }
+    flashInterval = setInterval(function(){
+      const redRandomColor = redFlashColors[Math.floor(Math.random() * 4)];
+      const blueRandomColor = blueFlashColors[Math.floor(Math.random() * 4)];
+      const greenRandomColor = greenFlashColors[Math.floor(Math.random() * 4)];
+      const yellowRandomColor = yellowFlashColors[Math.floor(Math.random() * 4)];
+      $('.flashing-red').toggleClass(redRandomColor);
+      $('.flashing-blue').toggleClass(blueRandomColor);
+      $('.flashing-green').toggleClass(greenRandomColor);
+      $('.flashing-yellow').toggleClass(yellowRandomColor);
+      if (time === 1) {
+        clearInterval(flashInterval);
+      }
+    }, 500);
+
 
 
     if (timerCountdown === false) {
@@ -78,22 +79,36 @@ $(()=> {
   let score = 0;
 
   function foundMatchingColors() {
-    score += 1;
-    $scorenumber.html(score);
+    if(gameRunning){
+      score += 1;
+      $scorenumber.html(score);
+    }
 
   }
+
+  $restart.on('click', function () {
+    gameRunning === true;
+    lives = 3;
+    $lives.html(lives);
+    $scorenumber.html(0);
+    time = 60;
+    $('.end-popup1').css('visibility', 'hidden');
+    $('.end-popup2').css('visibility', 'hidden');
+  });
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // LIVES SYSTEM FUNCTIONALITY++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-  let lives = 3;
+
 
   function loseALife() {
-    lives -=1;
+    if(lives > 0){
+      lives -=1;
+    }
     $lives.html(lives);
     if (lives === 0) {
-      (lives +=1);
+      gameRunning = false; //newnewnew
       $('.end-popup2').html('<p>oh dear, you ran out of lives. you scored' + ' ' + $scorenumber.html() + ' ' + 'points</p>');
       $('.end-popup2').css('visibility', 'visible');
     }
@@ -102,55 +117,29 @@ $(()=> {
 // CHECK EACH SEPARATE CORNER FOR MATCHES++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-  function checkRedMatch() {
-    const redMatch = $flashingRed.hasClass('red-flash-red');
-    if (redMatch === true) {
+  function checkMatch(colour){
+    const match = $(`.flashing-${colour}`).hasClass(`${colour}-flash-${colour}`);
+    if (match && gameRunning) {
       foundMatchingColors();
     } else loseALife();
   }
-
-  function checkBlueMatch() {
-    const blueMatch = $flashingBlue.hasClass('blue-flash-blue');
-    if (blueMatch === true) {
-      foundMatchingColors();
-    } else loseALife();
-  }
-
-  function checkGreenMatch() {
-    const greenMatch = $flashingGreen.hasClass('green-flash-green');
-    if (greenMatch === true) {
-      foundMatchingColors();
-    } else loseALife();
-
-  }
-
-  function checkYellowMatch() {
-    const yellowMatch = $flashingYellow.hasClass('yellow-flash-yellow');
-    if (yellowMatch === true) {
-      foundMatchingColors();
-    } else loseALife();
-  }
-
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // KEY PRESSES THAT CHECK FOR COLOUR MATCH+++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   $(window).keyup(function(e) {
+    e.preventDefault();
     if (e.keyCode === 37) {
-      e.preventDefault();
-      checkYellowMatch();
+      checkMatch('yellow');
     }
     if (e.keyCode === 38) {
-      e.preventDefault();
-      checkRedMatch();
+      checkMatch('red');
     }
     if (e.keyCode === 39) {
-      e.preventDefault();
-      checkBlueMatch();
+      checkMatch('blue');
     }
     if (e.keyCode === 40) {
-      e.preventDefault();
-      checkGreenMatch();
+      checkMatch('green');
     }
   });
 

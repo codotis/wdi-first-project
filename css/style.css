@@ -259,3 +259,11 @@ border-bottom-color: green;
 button:focus {
   outline:0;
 }
+
+@media only screen and (max-height: 420px) {
+
+.body {
+
+}
+
+}
