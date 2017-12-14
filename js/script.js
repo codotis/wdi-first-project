@@ -17,6 +17,8 @@ $(()=> {
   let time = 60;
   let lives = 3;
   let score = 0;
+  let interval = null;
+  let timerStop = null;
   $('.end-popup1').css('visibility', 'hidden');
   $('.end-popup2').css('visibility', 'hidden');
   // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -24,7 +26,7 @@ $(()=> {
   // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   function flashInterval(){
     if (gameRunning) {
-      const interval = setInterval(function(){
+      interval = setInterval(function(){
         const redRandomColor = redFlashColors[Math.floor(Math.random() * 4)];
         const blueRandomColor = blueFlashColors[Math.floor(Math.random() * 4)];
         const greenRandomColor = greenFlashColors[Math.floor(Math.random() * 4)];
@@ -36,12 +38,12 @@ $(()=> {
         if (time === 1) {
           clearInterval(interval);
         }
-      }, 500);
+      }, 1000);
     }
   }
 
   function countdown(){
-    const timerStop = setInterval(function(){
+    timerStop = setInterval(function(){
       time--;
       $timer.html(time);
       if (time === 0) {
@@ -84,20 +86,23 @@ $(()=> {
     }
 
   }
-  // if (time === 0 || lives === 0) {
+
   $restart.on('click', function () {
-    gameRunning = true;
-    lives = 3;
-    $lives.html(lives);
-    $scorenumber.html(0);
-    time = 60;
-    $timer.html(60);
-    countdown();
-    flashInterval();
-    $('.end-popup1').css('visibility', 'hidden');
-    $('.end-popup2').css('visibility', 'hidden');
+    if (time === 0 || lives === 0) {
+      console.log('time: ',time);
+      console.log('lives: ',lives);
+      gameRunning = true;
+      lives = 3;
+      $lives.html(lives);
+      $scorenumber.html(0);
+      time = 60;
+      $timer.html(60);
+      countdown();
+      flashInterval();
+      $('.end-popup1').css('visibility', 'hidden');
+      $('.end-popup2').css('visibility', 'hidden');
+    }
   });
-  // }
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   // LOSE A LIFE FUNCTIONALITY+++++++++++++++++++++++++++++++++++++++++++++++++
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -108,6 +113,8 @@ $(()=> {
     $lives.html(lives);
     if (lives === 0) {
       gameRunning = false;
+      clearInterval(interval);
+      clearInterval(timerStop);
       $('.end-popup2').html('<p>oh dear, you ran out of lives. you scored' + ' ' + $scorenumber.html() + ' ' + 'points</p>');
       $('.end-popup2').css('visibility', 'visible');
     }
