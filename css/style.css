@@ -28,8 +28,12 @@ li {
   border: 2px solid white;
   border-radius: 10px;
   padding: 7px 5px;
-  background-color: red;
+  background-color: slateblue;
   width: 100px;
+}
+
+#lives, #time, #scorenumber{
+  margin-left: 16px;
 }
 
 #restart {
@@ -48,7 +52,7 @@ a {
   background: none;
   border-radius: 10px;
   font-size: 16px;
-  color: white;
+  color: #e8e8ed;
   font-family: 'Orbitron', sans-serif;
 }
 /*#end-popup1-text {
@@ -59,7 +63,7 @@ a {
 
 .gameframe {
   background-color: #2f2f33;
-  border: 3px solid white;
+  border: 3px solid black;
   width: 500px;
   height: 500px;
   margin: 10px 0;

@@ -47,7 +47,7 @@ $(()=> {
       time--;
       $timer.html(time);
       if (time === 0) {
-        $('.end-popup1').html('<p>time ran out! you scored' + ' ' + $scorenumber.html() + ' ' + 'points</p>');
+        $('.end-popup1').html('<p>time ran out! <br> <br> you got' + ' ' + $scorenumber.html() + ' ' + 'matches! <br> <br> click restart to try again.</p>');
         $('.end-popup1').css('visibility', 'visible');
         clearInterval(timerStop);
       }
@@ -115,7 +115,7 @@ $(()=> {
       gameRunning = false;
       clearInterval(interval);
       clearInterval(timerStop);
-      $('.end-popup2').html('<p>oh dear, you ran out of lives. you scored' + ' ' + $scorenumber.html() + ' ' + 'points</p>');
+      $('.end-popup2').html('<p>oh dear, you ran out of lives. <br> <br> you got' + ' ' + $scorenumber.html() + ' ' + 'matches! <br> <br> click restart to try again.</p>');
       $('.end-popup2').css('visibility', 'visible');
     }
   }
