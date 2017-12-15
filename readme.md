@@ -8,7 +8,7 @@ For my first project assignment as a WDI student at General Assembly I was taske
 
 ## Check out Colour Tap
 
-Play Colour Tap, hosted on [this Heroku link](https://shrouded-everglades-90472.herokuapp.com/).
+Play Colour Tap, hosted on [this Heroku link](https://shrouded-everglades-90472.herokuapp.com/)
 
 Check out the source code on my [github repository](https://github.com/codotis/wdi-first-project)
 
