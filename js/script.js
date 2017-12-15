@@ -91,7 +91,7 @@ $(()=> {
     if (time === 0 || lives === 0) {
       console.log('time: ',time);
       console.log('lives: ',lives);
-      gameRunning = t rue;
+      gameRunning = true;
       lives = 3;
       $lives.html(lives);
       score = 0;
