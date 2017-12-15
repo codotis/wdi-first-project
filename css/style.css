@@ -32,8 +32,12 @@ li {
   width: 100px;
 }
 
-#lives, #time, #scorenumber{
+#lives, #time{
   margin-left: 16px;
+}
+
+#scorenumber{
+  margin-left: 10px;
 }
 
 #restart {
