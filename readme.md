@@ -1,4 +1,4 @@
-#General Assembly, Project #1: The Game
+# General Assembly, Project #1: The Game
 
 For my first project assignment as a WDI student at General Assembly I was tasked with creating my own game. After sketching some rough ideas on <https://sketchboard.io/> I settled for this! My goal was to create a game that requires high concentration, high reaction speed and that has a great replay value.
 
