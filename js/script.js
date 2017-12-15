@@ -38,7 +38,7 @@ $(()=> {
         if (time === 1) {
           clearInterval(interval);
         }
-      }, 1000);
+      }, 800);
     }
   }
 
